@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Roboto', Tahoma, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -46,9 +48,13 @@ body {
     margin-left: auto;
 }
 
+.navbar span{
+    font-weight: bold;
+}
+
 .content {
     font-family: Verdana, sans-serif;
-    margin-top: 3rem;
+    margin-top: 3.5rem;
     padding: 2rem;
 }
 .content a:link, .common-activate {
@@ -67,17 +73,34 @@ body {
     color: #ed687e;
     text-decoration: none;
 }
-.content input, .content button, .content select {
-    padding: 0.2rem 0.3rem;
+.content input, .content select, .content button {
+    padding: 0.8rem 1.2rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
-.content input:not([type]), .content input[type="text"] {
-    width: 11rem;
+.content input:focus, .content select:focus {
+    border-color: #dd0428;
+    box-shadow: 0 0 0 3px rgba(221, 4, 40, 0.2);
+    outline: none;
 }
-.content input[type="checkbox"], .content input[type="radio"] {
-    vertical-align: top;
+.content button {
+    background-color: #dd0428;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
 }
-.content input[type="checkbox"] ~ label {
-    margin-right: 1rem;
+.content button:hover {
+    background-color: #e85971;
+}
+.content input[type="checkbox"], .content label {
+    box-shadow: none;
+    padding: 0;
+}
+.content input[type="checkbox"]:checked {
+    accent-color: #dd0428;
 }
 
 .common-center {
@@ -85,14 +108,14 @@ body {
     margin: 0 auto;
 }
 .common-header {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Roboto', Tahoma, sans-serif;
     font-size: 2rem;
     margin-bottom: 1rem;
     padding-bottom: 0.4rem;
     border-bottom: 0.15rem solid #0003;
 }
 .common-subheader {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Roboto', Tahoma, sans-serif;
     font-size: 1.7rem;
     margin: 1rem 0 0.5rem;
 }
@@ -107,7 +130,7 @@ body {
     display: block;
 }
 .common-loading {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Roboto', Tahoma, sans-serif;
     font-size: 1.3rem;
     text-align: center;
 }
@@ -131,17 +154,24 @@ body {
 }
 .common-table {
     width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+    margin: 2rem 0;
 }
 .common-table :is(td, th) {
-    padding: 0.5rem;
-    border: 0.15rem solid #0002;
+    padding: 1rem;
+    border: none;
+    background-color: #f8f8f8;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
     overflow-wrap: anywhere;
+    transition: box-shadow 0.3s ease;
 }
 .common-table th {
-    background-color: #0001;
+    background-color: #e8e8e8;
+    font-weight: bold;
 }
+
 .common-table ul {
     margin: 0;
     padding-left: 1rem;
@@ -163,7 +193,7 @@ body {
     gap: 0.3rem;
 }
 .home-title {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Roboto', Tahoma, sans-serif;
     font-size: 3rem;
     display: flex;
     align-items: flex-end;
@@ -174,13 +204,18 @@ body {
 }
 .home-search {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 .home-search-input, .home-search-button {
-    padding: 0.3rem 0.5rem !important;
+    padding: 0.8rem 1.2rem;
 }
 .home-search-input {
-    width: 20rem !important;
+    width: 25rem;
 }
 
 .search {
@@ -198,11 +233,16 @@ body {
 }
 .search-fields {
     text-align: center;
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.search-fields-list {
+    flex-grow: 1;
 }
 .search-table {
     width: 100%;
     margin: 0.5rem 0 1rem;
-    table-layout: fixed;
     border-collapse: collapse;
 }
 .search-table tr:first-child td {
@@ -211,6 +251,7 @@ body {
 .search-table td {
     padding: 0.5rem 0;
     border-bottom: 0.15rem solid #0002;
+    font-size: 0.9em;
 }
 .search-table td:first-child {
     width: 46%;
@@ -218,14 +259,24 @@ body {
 .search-table td:last-child {
     width: auto;
 }
-.search-table button {
-    margin-right: 0.5rem;
+
+.search-table button{
+    margin-right: 5pt;
 }
+
+.search-table td button{
+    padding: 7pt;
+}
+
+.results-compact{
+    padding-right: 5pt;
+}
+
 .search-button {
     width: 100%;
     margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
 }
-
 .results {
     width: calc(100% - 30rem);
     height: calc(100% - 3.5rem);
@@ -256,6 +307,31 @@ body {
     width: 2rem !important;
     margin-left: 0.5rem;
 }
+.results-go-to-page, .results-navigate button {
+    padding: 0.5rem 0.8rem;
+    background-color: #dd0428;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.results-go-to-page:hover, .results-navigate button:hover {
+    background-color: #e85971;
+}
+.remove-field-button {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    background-color: #dd0428;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+.remove-field-button:hover {
+    background-color: #e85971;
+}
 .results-compact {
     position: absolute;
     top: 2rem; right: 0;
@@ -278,7 +354,7 @@ body {
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     margin-right: 0.5rem;
     flex: 0 0 8rem;
     cursor: pointer;
@@ -292,7 +368,7 @@ body {
     overflow: hidden;
 }
 .entry:not([compact]) .entry-title {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Roboto', Tahoma, sans-serif;
     font-size: 1.5rem;
 }
 .entry:not([compact]) .entry-developer {
@@ -358,6 +434,7 @@ body {
     max-width: calc(35% - 2.8rem);
 }
 
+/* Viewer */
 .viewer {
     flex-direction: column;
 }
@@ -372,25 +449,125 @@ body {
 }
 .viewer-play {
     margin-left: auto;
+    color: #000 !important;
+    font-weight: bold;
+    background-color: #e8e8e8;
+    padding: 10pt;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow-wrap: anywhere;
+    transition: box-shadow 0.3s ease;
 }
 .viewer-images {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
-.viewer-logo, .viewer-screenshot {
-    height: 15rem;
-    border: 0.15rem solid #0002;
+
+.viewer-back {
+    color:#dd0428;
+    font-weight: bold;    
 }
-.viewer-logo {
-    width: 100%;
-}
+
+.viewer-logo,
 .viewer-screenshot {
-    width: 150%;
+    border: 1px solid #ddd;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
 }
-.viewer-logo img, .viewer-screenshot img {
+.viewer-logo legend,
+.viewer-screenshot legend {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    background-color: #e8e8e8;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow-wrap: anywhere;
+    transition: box-shadow 0.3s ease;
+}
+.viewer-logo .image-wrapper,
+.viewer-screenshot .image-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+}
+.viewer-logo img,
+.viewer-screenshot img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    visibility: hidden;
+}
+.zoom-icon {
+    position: absolute;
+    bottom: 10pt;
+    right: 10pt;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 50%;
+    width: 20pt;
+    height: 20pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.0rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.zoom-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modal-content {
+    margin: auto;
     display: block;
-    object-fit: contain;
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 3.5rem;
+    color: #f1f1f1;
+    font-size: 2.5rem;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
 }
 .viewer .common-table :is(td, th):first-child {
     width: 30%;
@@ -433,7 +610,7 @@ body {
     flex: 0 0 12rem;
 }
 .stats-total div:last-child {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Roboto', Tahoma, sans-serif;
     font-size: 2rem;
 }
 .stats-platforms, .stats-platforms :is(td, th) {
@@ -444,10 +621,70 @@ body {
 }
 .stats-platforms :is(td, th) {
     text-align: center;
-    padding: 0.5rem 1rem;
 }
 
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.animated-entry {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-text {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideIn 1s ease-out forwards;
+}
+
+.home-subtitle {
+    animation-delay: 0.3s;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOutZoom {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+.modal-show {
+    display: flex; 
+    animation: fadeInZoom 0.3s ease-out forwards;
+}
+
+.modal-hide {
+    animation: fadeOutZoom 0.3s ease-in forwards;
 }

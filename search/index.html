@@ -54,7 +54,6 @@
                         <span class="results-current-page"></span> / <span class="results-max-pages"></span>
                         <button class="results-forward-page">&#62;</button>
                         <button class="results-last-page">&#62;&#62;</button>
-                        
                         <input type="text" placeholder="#" class="results-input-page">
                         <button class="results-go-to-page">Go</button>
                     </div>
@@ -69,7 +68,6 @@
                     <span class="results-current-page"></span> / <span class="results-max-pages"></span>
                     <button class="results-forward-page">&#62;</button>
                     <button class="results-last-page">&#62;&#62;</button>
-                    
                     <input type="text" placeholder="#" class="results-input-page">
                     <button class="results-go-to-page">Go</button>
                 </div>
@@ -78,26 +76,33 @@
                         <div class="viewer-back common-activate">&#60; Back to Results</div>
                         <a class="viewer-play" target="_blank">Play at 9o3o</a>
                     </div>
-                    
                     <div class="common-subheader">Images</div>
                     <div class="viewer-images">
-                        <fieldset class="viewer-logo">
+                        <fieldset class="viewer-logo" id="logo-container">
                             <legend>Logo</legend>
-                            <a target="_blank"><img></a>
+                            <div class="image-wrapper">
+                                <a target="_blank" href="#"><img src="" alt="Game Logo"></a>
+                                <div class="zoom-icon" data-image-type="logo"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 16 16" fill="#ffffff"><path fill="#ffffff" fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06zM10.5 7a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0" clip-rule="evenodd"/></svg></div>
+                            </div>
                         </fieldset>
-                        <fieldset class="viewer-screenshot">
+                        <fieldset class="viewer-screenshot" id="screenshot-container">
                             <legend>Screenshot</legend>
-                            <a target="_blank"><img></a>
+                            <div class="image-wrapper">
+                                <a target="_blank" href="#"><img src="" alt="Game Screenshot"></a>
+                                <div class="zoom-icon" data-image-type="screenshot"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 16 16" fill="#ffffff"><path fill="#ffffff" fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06zM10.5 7a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0" clip-rule="evenodd"/></svg></div>
+                            </div>
                         </fieldset>
                     </div>
-                    
                     <div class="common-subheader">Metadata</div>
                     <table class="viewer-metadata common-table"></table>
-                    
                     <div class="viewer-add-apps-header common-subheader">Additional Apps</div>
                     <div class="viewer-add-apps"></div>
                 </div>
             </div>
+        </div>
+        <div id="imageModal" class="modal">
+            <span class="modal-close">&times;</span>
+            <img class="modal-content" id="modalImage">
         </div>
     </body>
 </html>

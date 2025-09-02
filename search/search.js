@@ -349,15 +349,25 @@ async function loadEntry(e) {
     let logo = `${fpdb.images}/Logos/${id.substring(0, 2)}/${id.substring(2, 4)}/${id}.png`,
         screenshot = `${fpdb.images}/Screenshots/${id.substring(0, 2)}/${id.substring(2, 4)}/${id}.png`;
     
+    let logoElem = document.querySelector('.viewer-logo img');
+    let screenshotElem = document.querySelector('.viewer-screenshot img');
+
     document.querySelector('.viewer-logo a').href = logo;
-    document.querySelector('.viewer-logo img').style.visibility = 'hidden';
-    document.querySelector('.viewer-logo img').addEventListener('load', e => e.target.style.visibility = 'visible');
-    document.querySelector('.viewer-logo img').src = logo + '?type=jpg';
-    
+    logoElem.style.visibility = 'hidden';
+    logoElem.addEventListener('load', e => e.target.style.visibility = 'visible');
+    logoElem.src = logo + '?type=jpg';
+    logoElem.alt = entry.title + ' Logo';
+    document.querySelector('.viewer-logo .zoom-icon').onclick = () => openModal(logoElem.src);
+
     document.querySelector('.viewer-screenshot a').href = screenshot;
-    document.querySelector('.viewer-screenshot img').style.visibility = 'hidden';
-    document.querySelector('.viewer-screenshot img').addEventListener('load', e => e.target.style.visibility = 'visible');
-    document.querySelector('.viewer-screenshot img').src = screenshot + '?type=jpg';
+    screenshotElem.style.visibility = 'hidden';
+    screenshotElem.addEventListener('load', e => e.target.style.visibility = 'visible');
+    screenshotElem.src = screenshot + '?type=jpg';
+    screenshotElem.alt = entry.title + ' Screenshot';
+
+    screenshotElem.onclick = () => openModal(screenshotElem.src);
+
+    document.querySelector('.viewer-screenshot .zoom-icon').onclick = () => openModal(screenshotElem.src);
     
     let metaTable = document.querySelector('.viewer-metadata');
     while (metaTable.firstChild)
@@ -452,6 +462,38 @@ function backToResults() {
     document.querySelector('.results-list').hidden = false;
     document.querySelector('.results-bottom').hidden = fpdb.pages < 2;
     document.querySelector('.results').scrollTop = fpdb.lastScrollPos;
+}
+
+// Modal Handling
+let modal = document.getElementById('imageModal');
+let closeModalSpan = document.getElementsByClassName("modal-close")[0];
+
+function openModal(imageSrc) {
+    let modal = document.getElementById('imageModal');
+    let modalImg = document.getElementById('modalImage');
+    modal.style.display = 'flex';
+
+    modal.classList.remove('modal-hide');
+    modalImg.src = imageSrc;
+    modal.classList.add('modal-show');
+}
+
+function closeModal() {
+    modal.classList.add('modal-hide');
+    modal.addEventListener('animationend', handleAnimationEnd, { once: true });
+}
+
+function handleAnimationEnd() {
+    modal.classList.remove('modal-show', 'modal-hide');
+    modal.style.display = 'none';
+}
+
+closeModalSpan.onclick = closeModal;
+
+modal.onclick = function(event) {
+    if (event.target === modal) {
+        closeModal();
+    }
 }
 
 document.querySelector('.search-button').addEventListener('click', performSearch);
