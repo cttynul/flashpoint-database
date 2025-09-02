@@ -347,6 +347,10 @@ body {
     display: flex;
 }
 
+.entry-text a, .entry-title{
+    color:#dd0428;
+}
+
 .entry:not([compact]) {
     height: 6rem;
 }
